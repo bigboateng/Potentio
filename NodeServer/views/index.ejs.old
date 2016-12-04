@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to MicroBit</p>
+  </body>
+
+  <script type="text/javascript">
+   var config = {
+    apiKey: "AIzaSyA3OrvG4g7fb3PELJKTJKekOo7yan8k5HE",
+    authDomain: "microbit-5b696.firebaseapp.com",
+    databaseURL: "https://microbit-5b696.firebaseio.com",
+    storageBucket: "microbit-5b696.appspot.com",
+    messagingSenderId: "72543783488"
+  };
+
+  	firebase.initializeApp(config);
+  	var tempRef = firebase.database().ref('temp');
+  	tempRef.on('child_added', function(data){
+  		console.log(data.val());
+  	});
+  </script>
+</html>

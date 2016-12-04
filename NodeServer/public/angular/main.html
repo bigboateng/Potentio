@@ -1,0 +1,67 @@
+<center style="font-size: 40px">Potentio</center>
+
+  <div class="row">
+  <div class="col-md-4 cont" style="font-size: 30px">
+<p  id="progressBarContainer" ><bold><span ng-bind="audio1.currentTime">DECK 1</span></bold>
+  </p>
+
+
+  <div class="row">
+  	<div class="col-md-8">
+  		<!-- chosen song -->
+          <button class="btn btn-primary ng-binding" ng-click="song1Selected(null)"><span ng-bind="playButton1"></span></button>
+  	</div> 
+  </div>
+  </div>
+
+  <div class="col-md-4">
+
+
+
+  </div>
+
+  <div class="col-md-4 cont">
+  <p  id="progressBarContainer" ><bold><span ng-bind="audio2.currentTime" style="font-size: 30px"></span></bold>
+  </p>
+
+    <div class="row">
+  	<div class="col-md-8">
+  		<!-- chosen song -->
+    <button class="btn btn-primary ng-binding" ng-click="audio2.paused ? audio2.play() : audio2.pause();"><span>Play</span></button>
+
+
+  	</div>
+  
+  </div>
+  </div>
+
+  
+  </div>
+</div>
+
+  <input id="ex9" class="fader" id="fader" type="range" min="0" max="1" step="0.01" ng-change="faderChange()" ng-model="faderVal" />
+
+<div class="row">
+  <div class="col-md-6">
+    
+    <div class="list-group">
+    <div class="list-group" ng-repeat="name in names">
+        <a href="" ng-click="song1Selected(names.indexOf(name))" class="list-group-item">{{name}}</a>
+    </div>
+</div>
+
+  </div>
+  <div class="col-md-6">
+    
+    <div class="list-group" ng-repeat="name in names">
+        <a href="" class="list-group-item" ng-click="song2Selected(names.indexOf(name))">{{name}}</a>
+    </div>
+</div>
+
+
+  </div>
+</div>
+
+
+
+

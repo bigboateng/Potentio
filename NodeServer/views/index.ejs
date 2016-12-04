@@ -1,0 +1,162 @@
+<!doctype html>
+<html><head>
+    <meta charset="utf-8">
+    <title>microDj</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+
+    
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/font-style.css" rel="stylesheet">
+    <link href="assets/css/flexslider.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <!-- Include Angular -->
+    <script type="text/javascript" src="/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="/javascripts/home.js"></script>
+	<script type="text/javascript" src="/angular-audio/app/angular.audio.js"></script>
+
+<!-- Include firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+
+
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+
+      .fader {
+      	width: 100%;
+      }
+
+      .chosenSong {
+      	color: white;
+      }
+
+      body {font-family:helvetica;}
+    div.play {
+      color: #ddd;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      font-size: 14px;
+      cursor: pointer;
+      position: relative;
+      background-color: #3498db;  
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      -webkit-box-shadow: inset 0 0 0 1px #ddd, inset 0 0 0 3px #fff,inset 0 0 0 4px #ddd;
+      box-shadow: inset 0 0 0 1px #ddd, inset 0 0 0 3px #fff,inset 0 0 0 4px #ddd;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+    }
+
+  div.play:hover,
+  div.play.active {
+    -webkit-box-shadow: inset 0 0 0 0 #CD391F, inset 0 0 0 0 #fff,inset 0 0 0 0px #cd3920;
+    -moz-box-shadow: inset 0 0 0 0 #CD391F, inset 0 0 0 0 #fff,inset 0 0 0 0px #cd3920;
+    box-shadow: inset 0 0 0 0 #CD391F, inset 0 0 0 0 #fff,inset 0 0 0 0px #cd3920;
+    color: #fff;
+    background-color: #CD391F;
+  }
+
+
+
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+    $("#btn-blog-next").click(function () {
+      $('#blogCarousel').carousel('next')
+    });
+     $("#btn-blog-prev").click(function () {
+      $('#blogCarousel').carousel('prev')
+    });
+
+     $("#btn-client-next").click(function () {
+      $('#clientCarousel').carousel('next')
+    });
+     $("#btn-client-prev").click(function () {
+      $('#clientCarousel').carousel('prev')
+    });
+    
+});
+
+ $(window).load(function(){
+
+    $('.flexslider').flexslider({
+        animation: "slide",
+        slideshow: true,
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+    });  
+});
+
+</script>
+
+
+<!-- main css -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    
+  </head>
+  <body>
+  	<div id="root" ng-app="djApp">
+  		<div ng-view></div>
+  	</div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+	<!-- NOTY JAVASCRIPT -->
+	<script type="text/javascript" src="assets/js/noty/jquery.noty.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/top.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topLeft.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topRight.js"></script>
+	<script type="text/javascript" src="assets/js/noty/layouts/topCenter.js"></script>
+	
+	<!-- You can add more layouts if you want -->
+	<script type="text/javascript" src="assets/js/noty/themes/default.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
+	<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="assets/js/jquery.flexslider.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="assets/js/admin.js"></script>
+
+
+<!-- dial libraru -->
+<!-- Raphael.js -->
+<script src="ngProgress/build/ngProgress.js"></script>
+<link rel="stylesheet" href="ngprogress/ngProgress.css">
+  <!--- end of lib -->
+
+  
+</body></html>
